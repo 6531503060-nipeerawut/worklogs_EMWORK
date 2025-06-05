@@ -2,7 +2,6 @@ require("dotenv").config();
 const express = require("express");
 const router = express.Router();
 const db = require("./db-config");
-const dayjs = require('dayjs');
 
 router.get('/', async (req, res) => {
     const { date } = req.query;
@@ -51,31 +50,6 @@ router.delete('/:id', async (req, res) => {
     const { id } = req.params;
     await db.query(`DELETE FROM work_logs WHERE id = ?`, [id]);
     res.json({ message: 'Deleted' });
-});
-
-
-// Seed mock data
-router.post('/api/seed', async (req, res) => {
-    const now = dayjs();
-    const statuses = ['ดำเนินการ', 'เสร็จสิ้น', 'ยกเลิก'];
-    const types = ['Development', 'Test', 'Document'];
-    for (let d = 0; d < 5; d++) {
-        for (let i = 0; i < 5; i++) {
-            const date = now.subtract(d, 'day').format('YYYY-MM-DD');
-            await db.query(
-                `INSERT INTO work_logs (work_type, title, start_time, end_time, status)
-         VALUES (?, ?, ?, ?, ?)`,
-                [
-                    types[Math.floor(Math.random() * 3)],
-                    `งานที่ ${i + 1}`,
-                    `${date} 09:00:00`,
-                    `${date} 10:00:00`,
-                    statuses[Math.floor(Math.random() * 3)]
-                ]
-            );
-        }
-    }
-    res.json({ message: 'Seeded' });
 });
 
 module.exports = router
