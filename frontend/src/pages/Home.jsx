@@ -6,6 +6,7 @@ import WorkTable from '../components/WorkTable';
 import Report from '../components/Report';
 
 function Home() {
+  document.title = "Worklogs-Home";
   const [logs, setLogs] = useState([]);
   const [dateFilter, setDateFilter] = useState('');
 
