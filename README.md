@@ -1,4 +1,5 @@
-# worklogs_EMWORK
+# worklogs_workshop
 React, Node.js(Express.js), and MySQL
 
-<img width="921" alt="Screenshot 2568-06-05 at 15 47 31" src="https://github.com/user-attachments/assets/c23f334d-d449-4073-b0a1-e5600ea0ca4b" />
+<img width="578" alt="Screenshot 2568-06-12 at 00 58 59" src="https://github.com/user-attachments/assets/e3d0fa33-e0ca-4d32-a608-0ac453646164" />
+
